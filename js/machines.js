@@ -8,7 +8,6 @@ function loadMachines(){
 	}).then(function(data) {
 
 	  var tabla = document.getElementById("machinesTable");
-	  alert(data.length);
 
 	  for (var i=0; i<data.length;i++)
 	  {
