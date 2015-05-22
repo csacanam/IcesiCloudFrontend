@@ -12,7 +12,7 @@ function loadMachines(){
 
 	  for (var i=0; i<data.length;i++)
 	  {
-	  	var maquina = data[i];
+	  	var maquina = data[i]["nombre"];
 
 	  	var tr = tabla.insertRow();
 

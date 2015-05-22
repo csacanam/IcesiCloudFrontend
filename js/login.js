@@ -15,7 +15,7 @@ $(document).ready(function(){
 			},
 			success: function(data)
 			{
-				if( data === 'true')
+				if( data === true)
 				{
 					//Limpiar campos
 					$("input[type=text], input[type=password]").val("");
