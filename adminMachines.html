@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+    <title class="text-center">Icesi Cloud</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href ="css/styles_login.css" rel="stylesheet">
+    <link href ="css/styles_adminmachines.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/form2js.js"></script>
+    <script type="text/javascript" src="js/jquery.session.js"></script>
+    <script type="text/javascript" src="js/machines.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/jquery.leanModal.min.js"></script>
+</head>
+<body onload="loadMachines()">
+
+<h1 class="title">Administrar Mis Máquinas</h1>
+
+<div class="col-lg-112">
+
+
+
+<div>
+<center><a href="#loginmodal" class="flatbtn btnCrearMaquina" id="modaltrigger">Crear Máquina</a></center>
+</div>
+
+<div id="loginmodal" style="display:none;">
+    <h1>Máquina Nueva</h1>
+    <form id="loginform" name="loginform" method="post" action="adminMachines.html">
+      <label for="sistemaOperativo">Sistema Operativo:</label>
+      <input type="text" name="username" id="username" class="txtfield" tabindex="1">
+      
+      <label for="aplicacion">Aplicacion:</label>
+      <input type="password" name="password" id="password" class="txtfield" tabindex="2">
+      
+      <div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="Crear" tabindex="3"></div>
+    </form>
+  </div>
+<script type="text/javascript">
+$(function(){
+  $('#loginform').submit(function(e){
+    return false;
+  });
+  
+  $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+});
+</script>
+
+<table class ="table table-striped">
+<!-- Títulos -->
+<tr>
+	<th class="text-center"	>
+	Nombre
+	</th>
+
+</tr>
+
+<!-- Máquina 1 -->
+<tr>
+	<td class="text-center">
+		Máquina 1
+	</td>
+
+	<td class="text-center">
+		<a href="">Reanudar</a>
+	</td>
+	
+	<td class="text-center">
+		<a href="">Eliminar</a>
+	</td>
+	
+</tr>
+<!-- Máquina 2 -->
+<tr>
+	<td class="text-center">
+		Máquina 2
+	</td>
+	
+	<td class="text-center">
+		<a href="">Reanudar</a>
+	</td>
+	
+	<td class="text-center">
+		<a href="">Eliminar</a>
+	</td>
+	
+</tr>
+<!-- Máquina 3 -->
+<tr>
+	<td class="text-center">
+		Máquina 3
+	</td>
+	
+	<td class="text-center">
+		<a href="">Reanudar</a>
+	</td>
+	
+	<td class="text-center">
+		<a href="">Eliminar</a>
+	</td>
+</tr>
+</table>
+</div>
+
+<div id="result">
+</div>
+
+</div>
+
+
+
+
+</body>
+</html>
