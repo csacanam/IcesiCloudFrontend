@@ -29,8 +29,8 @@ function eliminar(){
 	var root = 'http://192.168.130.73:8080';
 
 	$.ajax({
-	  url: root + '/delete-vm?usernameLogged =' + $.session.get('username') + '&nombreMaquina='+ $( "#selectMachine option:selected" ).text() ,
-	  method: 'GET'
+	  url: root + '/delete-vm?usernameLogged=' + $.session.get('username') + '&nombreMaquina='+ $( "#selectMachine option:selected" ).text(),
+	  method: 'DELETE'
 	}).then(function(data) {
 
 	if(data===true)
