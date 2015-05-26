@@ -8,7 +8,7 @@ $(document).ready(function(){
 
 		$.ajax({
 			type: "POST",
-			url: "http://localhost:8080/auth-user",
+			url: "http://192.168.130.73:8080/auth-user",
 			data: {
 				username: username,
 				password: password
@@ -23,7 +23,7 @@ $(document).ready(function(){
 					//Guardar username en la sesión
 					$.session.set('username',username);
 					//Cambiar de página
-					window.location.replace("machines.html");
+					window.location.replace("adminMachines.html");
 				}
 				else
 				{
@@ -40,7 +40,7 @@ $(document).ready(function(){
 		{
 			$.ajax({
 				type: "POST",
-				url: "http://localhost:8080/new-user",
+				url: "http://192.168.130.73:8080/new-user",
 				data: {
 					name: $("#name").val(),
 					username: $("#usernameRegister").val(),

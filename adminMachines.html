@@ -6,16 +6,17 @@
     <title class="text-center">Icesi Cloud</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href ="css/styles_login.css" rel="stylesheet">
     <link href ="css/styles_adminmachines.css" rel="stylesheet">
+    <link href ="css/styles.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/form2js.js"></script>
     <script type="text/javascript" src="js/jquery.session.js"></script>
+    <script type="text/javascript" src="js/adminMachines.js"></script>
     <script type="text/javascript" src="js/machines.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/jquery.leanModal.min.js"></script>
 </head>
-<body onload="loadMachines()">
+<body >
 
 <h1 class="title">Administrar Mis Máquinas</h1>
 
@@ -24,94 +25,58 @@
 
 
 <div>
-<center><a href="#loginmodal" class="flatbtn btnCrearMaquina" id="modaltrigger">Crear Máquina</a></center>
+<center><a href="#loginmodal" class="flatbtn" id="modaltrigger">Crear Máquina</a></center>
 </div>
 
 <div id="loginmodal" style="display:none;">
     <h1>Máquina Nueva</h1>
     <form id="loginform" name="loginform" method="post" action="adminMachines.html">
-      <label for="sistemaOperativo">Sistema Operativo:</label>
-      <input type="text" name="username" id="username" class="txtfield" tabindex="1">
+     <center>
+		<select  class="form-control1 selectSO" id="nombreSO" data-style="btn-info">
+		</select>
+	</center>
+	<br>
       
-      <label for="aplicacion">Aplicacion:</label>
-      <input type="password" name="password" id="password" class="txtfield" tabindex="2">
+      <label for="aplicacion">Nombre de la Máquina:</label>
+      <input type="text" name="nombreMaquina" id="nombreMaquina" class="txtfield" tabindex="2">
       
       <div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="Crear" tabindex="3"></div>
     </form>
   </div>
 <script type="text/javascript">
 $(function(){
-  $('#loginform').submit(function(e){
-    return false;
-  });
-  
   $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+  
 });
 </script>
 
-<table class ="table table-striped">
-<!-- Títulos -->
-<tr>
-	<th class="text-center"	>
-	Nombre
-	</th>
-
-</tr>
-
-<!-- Máquina 1 -->
-<tr>
-	<td class="text-center">
-		Máquina 1
-	</td>
-
-	<td class="text-center">
-		<a href="">Reanudar</a>
-	</td>
-	
-	<td class="text-center">
-		<a href="">Eliminar</a>
-	</td>
-	
-</tr>
-<!-- Máquina 2 -->
-<tr>
-	<td class="text-center">
-		Máquina 2
-	</td>
-	
-	<td class="text-center">
-		<a href="">Reanudar</a>
-	</td>
-	
-	<td class="text-center">
-		<a href="">Eliminar</a>
-	</td>
-	
-</tr>
-<!-- Máquina 3 -->
-<tr>
-	<td class="text-center">
-		Máquina 3
-	</td>
-	
-	<td class="text-center">
-		<a href="">Reanudar</a>
-	</td>
-	
-	<td class="text-center">
-		<a href="">Eliminar</a>
-	</td>
-</tr>
-</table>
-</div>
-
-<div id="result">
-</div>
 
 </div>
 
 
+</div>
 
+<br>
+
+
+
+<div>
+<center><a href="machines.html" class="flatbtn" id="listMachines">Listar Máquinas</a></center>
+		
+</div>
+
+<br>
+
+<div>
+<center><a href="eliminarMachines.html" class="flatbtn" id="eliminarMachines">Eliminar Máquinas</a></center>
+		
+</div>
+
+
+
+
+
+</div>
 
 </body>
 </html>
