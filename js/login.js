@@ -27,6 +27,7 @@ $(document).ready(function(){
 				}
 				else
 				{
+					$("#messagesAuth").css('color', '#ff0033');
 					$("#messagesAuth").html("La combinación usuario/contraseña es incorrecta");	
 				}
 			}
@@ -48,13 +49,15 @@ $(document).ready(function(){
 				},
 				success: function(data)
 				{
-					if( data === 'true')
+					if( data === true)
 					{
+						$("#messagesAuth").css('color', '#4F8A10');
+						$("#messagesAuth").html("El usuario fue creado");	
 						$("input[type=text], input[type=password]").val("");
-						$("#messagesAuth").html("");	
 					}
 					else
 					{
+						$("#messagesAuth").css('color', '#ff0033');
 						$("#messagesAuth").html("El usuario no pudo ser creado");	
 					}
 				}
@@ -62,6 +65,7 @@ $(document).ready(function(){
 		}
 		else
 		{
+			$("#messagesAuth").css('color', '#ff0033');
 			$("#messagesAuth").html("Las contraseñas no coinciden");				
 		}		
 	});
