@@ -27,22 +27,28 @@ $(document).ready(function(){
 
 function eliminar(){	
 	var root = 'http://192.168.130.73:8080';
+	var customUrl = root + '/delete-vm';
 
 	$.ajax({
-	  url: root + '/delete-vm?usernameLogged=' + $.session.get('username') + '&nombreMaquina='+ $( "#selectMachine option:selected" ).text(),
-	  method: 'DELETE'
-	}).then(function(data) {
+	type: "POST",
+	url: customUrl,
+	data: {
+		usernameLogged: $.session.get('username'),
+		nombreMaquina: encodeURIComponent($( "#selectMachine option:selected" ).text().trim())
+	},
+	success: function(data)
+	{
+		if( data === true)
+		{
+			alert("La máquina fue eliminada.")
 
-	if(data===true)
-	{
-		alert("La máquina fue eliminada.")
+		}
+		else
+		{
+			alert("No se pudo eliminar la máquina.")
+		}
 	}
-	else
-	{
-		alert("No se pudo eliminar la máquina.")
-	}  
-	  
-	});
+});
 	
 	
 }
