@@ -19,36 +19,33 @@ function selectMachines(){
 }
 
 $(document).ready(function(){
-	$("body").delegate("#eliminarMachines", "click", function(){
-		eliminar();
+	$("body").delegate("#reanudarMachines", "click", function(){
+		reanudar();
 	});
 	
 });
 
-function eliminar(){	
+function reanudar(){	
 	var root = 'http://localhost:8080';
-	var customUrl = root + '/delete-vm';
 
 	$.ajax({
-	type: "POST",
-	url: customUrl,
-	data: {
-		usernameLogged: $.session.get('username'),
-		nombreMaquina: encodeURIComponent($( "#selectMachine option:selected" ).text().trim())
-	},
-	success: function(data)
-	{
-		if( data === true)
-		{
-			alert("La máquina fue eliminada.")
+	  url: root + '/resume-vm?userLogged =' + $.session.get('username') + '&nombreMaquina='+ encodeURIComponent($( "#selectMachine option:selected" ).text().trim()),
+	  method: 'POST'
+	}).then(function(data) {
 
-		}
-		else
-		{
-			alert("No se pudo eliminar la máquina.")
-		}
+	if(data===true)
+	{
+		alert("La máquina fue reanudada.")
 	}
-});
+	else
+	{
+		alert("No se pudo reanudar la máquina.")
+	}  
+	  
+	});
 	
 	
 }
+
+
+

@@ -1,6 +1,6 @@
 function loadMachines(){
    
-	var root = 'http://192.168.130.73:8080';
+	var root = 'http://localhost:8080';
 
 	$.ajax({
 	  url: root + '/list-machines?username=' + $.session.get('username'),
