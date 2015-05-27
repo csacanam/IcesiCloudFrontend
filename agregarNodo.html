@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+    <title class="text-center">Icesi Cloud</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href ="css/styles_login.css" rel="stylesheet">
+    <link href ="css/styles.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/form2js.js"></script>
+    <script type="text/javascript" src="js/jquery.session.js"></script>
+    <script type="text/javascript" src="js/agregarNodo.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery.leanModal.min.js"></script>
+</head>
+<body onload="selectMachines()">
+
+<h1 class="title">Agregar Nodos a Máquinas</h1>
+
+<center>
+        <select  class="form-control1 selectMachine" id="selectMachine" data-style="btn-info">
+        </select>
+    </center>
+
+<br>
+
+
+<div>
+<center><a href="#loginmodal" class="flatbtn" id="modaltrigger">Agregar Nodo</a></center>
+</div>
+
+<div id="loginmodal" style="display:none;">
+    <h1>Nodo Nuevo</h1>
+    <form id="loginform" name="loginform" method="post" action="agregarNodo.html">
+           
+      <label for="aplicacion">Nombre del Nodo:</label>
+      <input type="text" name="nombreNodoadd" id="nombreNodoadd" class="txtfield" tabindex="2">
+
+    <label for="aplicacion">IP Privada:</label>
+      <input type="text" name="ipPrivada" id="ipPrivada" class="txtfield" tabindex="2">
+
+    <label for="aplicacion">IP Pública:</label>
+      <input type="text" name="ipPublica" id="ipPublica" class="txtfield" tabindex="2">
+
+      <label for="aplicacion">Máscara de Red:</label>
+      <input type="text" name="mascaraRed" id="mascaraRed" class="txtfield" tabindex="2">
+      
+      <label for="aplicacion">Cantidad de Memoria:</label>
+      <input type="text" name="cantidadMemoria" id="cantidadMemoria" class="txtfield" tabindex="2">
+
+    <label for="aplicacion">Cantidad de CPU:</label>
+      <input type="text" name="cantidadCPU" id="cantidadCPU" class="txtfield" tabindex="2">
+
+
+      <label for="aplicacion">Interfaz Puente:</label>
+      <input type="text" name="interfazPuente" id="interfazPuente" class="txtfield" tabindex="2">
+
+
+      <label for="aplicacion">Parámetros JSON:</label>
+      <input type="text" name="parametrosJSON" id="parametrosJSON" class="txtfield" tabindex="2">
+
+            
+      <div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="Agregar" tabindex="3"></div>
+    </form>
+  </div>
+<script type="text/javascript">
+$(function(){
+  $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+  
+});
+</script>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="result">
+</div>
+
+
+</body>
+</html>

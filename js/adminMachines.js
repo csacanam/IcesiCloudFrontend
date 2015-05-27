@@ -9,7 +9,7 @@ $(document).ready(function(){
 
 		$.ajax({
 			type: "POST",
-			url: "http://localhost:8080/create-machine",
+			url: "http://192.168.130.73:8080/create-machine",
 			data: {
 				nombreSO: sistemaOperativo,
 				nombreMaquina: nombreMaquina,
@@ -34,7 +34,7 @@ $(document).ready(function(){
 	function listarSO()
 	{
 		//Listar Sistema Operativo
-		var root = 'http://localhost:8080';
+		var root = 'http://192.168.130.73:8080';
 
 		$.ajax({
 		  url: root + '/list-so' ,

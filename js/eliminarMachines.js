@@ -25,6 +25,7 @@ $(document).ready(function(){
 	
 });
 
+
 function eliminar(){	
 	var root = 'http://localhost:8080';
 	var customUrl = root + '/delete-vm';
@@ -34,21 +35,21 @@ function eliminar(){
 	url: customUrl,
 	data: {
 		usernameLogged: $.session.get('username'),
-		nombreMaquina: encodeURIComponent($( "#selectMachine option:selected" ).text().trim())
+		nombreMaquina: $("#selectMachine option:selected").text().trim()
 	},
 	success: function(data)
-	{
+	{		
 		if( data === true)
 		{
-			alert("La máquina fue eliminada.")
+			alert('La máquina fue eliminada.');
 
 		}
 		else
 		{
-			alert("No se pudo eliminar la máquina.")
+			alert('No se pudo eliminar la máquina.');
 		}
 	}
-});
+	});
 	
 	
 }
