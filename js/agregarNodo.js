@@ -19,3 +19,52 @@ function selectMachines(){
 }
 
 
+$(document).ready(function(){
+
+//Agregar Nodo
+
+	$('#loginform').on('submit', function(e){
+		e.preventDefault();		
+		var nombreNodoadd = $("#nombreNodoadd").val();
+		var ipPrivada = $("#ipPrivada").val();
+		var ipPublica = $("#ipPublica").val();
+		var mascaraRed = $("#mascaraRed").val();
+		var cantidadMemoria = $("#cantidadMemoria").val();
+		var cantidadCPU = $("#cantidadCPU").val();
+		var interfazPuente = $("#interfazPuente").val();
+		var parametrosJSON = $("#parametrosJSON").val();
+		var nombreMaquina =  $( "#selectMachine option:selected" ).text().trim();
+
+		$.ajax({
+			type: "POST",
+			url: "http://192.168.130.73:8080/add-node",
+			data: {
+				nombreNodoadd: nombreNodoadd,
+				ipPrivada: ipPrivada,
+				ipPublica: ipPublica,
+				mascaraRed: mascaraRed,
+				cantidadMemoria: cantidadMemoria,
+				cantidadCPU: cantidadCPU,
+				interfazPuente: interfazPuente,
+				parametrosJSON: parametrosJSON,
+				nombreMaquina: nombreMaquina,
+				userLogged: $.session.get('username') 
+			},
+			success: function(data)
+			{
+				if( data === true)
+				{
+					
+					alert("El nodo fue agregado.");
+			
+				}
+				else
+				{
+					alert("El nodo no pudo ser agregado.");
+				}
+			}
+		});	
+	});
+
+
+});

@@ -7,7 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href ="css/styles_login.css" rel="stylesheet">
-    <link href ="css/styles.css" rel="stylesheet">
+    <link href ="css/styles_agregarNodo.css" rel="stylesheet">
+    <link href ="css/styles_adminmachines.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/form2js.js"></script>
@@ -19,63 +20,97 @@
 
 <h1 class="title">Agregar Nodos a Máquinas</h1>
 
+
+<center>
+
+<B span style="color:#219A16">Seleccione la Máquina a la cual desea agregarle el nodo</B>
+
+</center>
+
+<br>
+
 <center>
         <select  class="form-control1 selectMachine" id="selectMachine" data-style="btn-info">
         </select>
     </center>
 
-<br>
 
 
-<div>
-<center><a href="#loginmodal" class="flatbtn" id="modaltrigger">Agregar Nodo</a></center>
-</div>
+<div class="container">
+  <div class="row">
+    <br/>
+                
+                <center><a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#agregarNodo" data-original-title>
+          Agregar Nodo
+        </a></center>
+        <div class="modal fade" id="agregarNodo" tabindex="-1" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="panel-title" id="contactLabel"><span class="glyphicon glyphicon-info-sign"></span>Datos del Nodo a Agregar</h4>
+                    </div>
+                    <form id="loginform" name="loginform" method="post" accept-charset="utf-8">
+                    <div class="modal-body" style="padding: 5px;">
+                          <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
+                                    <input class="form-control" name="nombreNodoadd" id="nombreNodoadd" placeholder="Nombre del Nodo" type="text" required autofocus />
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
+                                    <input class="form-control" name="ipPrivada" id="ipPrivada" placeholder="IP Privada" type="text" required />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12" style="padding-bottom: 10px;">
+                                    <input class="form-control" name="ipPublica" id="ipPublica" placeholder="IP Pública" type="text" required />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12" style="padding-bottom: 10px;">
+                                    <input class="form-control" name="mascaraRed" id="mascaraRed" placeholder="Máscara de Red" type="text" required />
+                                </div>
+                            </div>
+                           
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12" style="padding-bottom: 10px;">
+                                    <input class="form-control" name="cantidadMemoria" id="cantidadMemoria" placeholder="Cantidad de Memoria" type="text" required />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12" style="padding-bottom: 10px;">
+                                    <input class="form-control" name="cantidadCPU" id="cantidadCPU" placeholder="Cantidad de CPU" type="text" required />
+                                </div>
+                            </div>
 
-<div id="loginmodal" style="display:none;">
-    <h1>Nodo Nuevo</h1>
-    <form id="loginform" name="loginform" method="post" action="agregarNodo.html">
-           
-      <label for="aplicacion">Nombre del Nodo:</label>
-      <input type="text" name="nombreNodoadd" id="nombreNodoadd" class="txtfield" tabindex="2">
 
-    <label for="aplicacion">IP Privada:</label>
-      <input type="text" name="ipPrivada" id="ipPrivada" class="txtfield" tabindex="2">
+                           <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12" style="padding-bottom: 10px;">
+                                    <input class="form-control" name="interfazPuente" id="interfazPuente" placeholder="Interfaz Puente" type="text" required />
+                                </div>
+                            </div>
 
-    <label for="aplicacion">IP Pública:</label>
-      <input type="text" name="ipPublica" id="ipPublica" class="txtfield" tabindex="2">
-
-      <label for="aplicacion">Máscara de Red:</label>
-      <input type="text" name="mascaraRed" id="mascaraRed" class="txtfield" tabindex="2">
-      
-      <label for="aplicacion">Cantidad de Memoria:</label>
-      <input type="text" name="cantidadMemoria" id="cantidadMemoria" class="txtfield" tabindex="2">
-
-    <label for="aplicacion">Cantidad de CPU:</label>
-      <input type="text" name="cantidadCPU" id="cantidadCPU" class="txtfield" tabindex="2">
+                            <div class="row">
 
 
-      <label for="aplicacion">Interfaz Puente:</label>
-      <input type="text" name="interfazPuente" id="interfazPuente" class="txtfield" tabindex="2">
-
-
-      <label for="aplicacion">Parámetros JSON:</label>
-      <input type="text" name="parametrosJSON" id="parametrosJSON" class="txtfield" tabindex="2">
-
-            
-      <div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="Agregar" tabindex="3"></div>
-    </form>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <textarea style="resize:vertical;" class="form-control" id="parametrosJSON" placeholder="Parámetros JSON" rows="6" name="comment" required></textarea>
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="panel-footer" style="margin-bottom:-14px;">
+                            <input type="submit" class="btn btn-success" value="Crear"/>
+                                <!--<span class="glyphicon glyphicon-ok"></span>-->
+                            <input type="reset" class="btn btn-danger" value="Borrar Información" />
+                                <!--<span class="glyphicon glyphicon-remove"></span>-->
+                            <button style="float: right;" type="button" class="btn btn-default btn-close" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
   </div>
-<script type="text/javascript">
-$(function(){
-  $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
-  
-});
-</script>
-
-
-</div>
-
-
 </div>
 
 

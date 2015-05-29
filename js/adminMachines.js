@@ -20,12 +20,12 @@ $(document).ready(function(){
 				if( data === true)
 				{
 					
-					alert("La Máquina fue creada.")
+					alert("La Máquina fue creada.");
 			
 				}
 				else
 				{
-					alert("La Máquina no pudo ser creada.")
+					alert("La Máquina no pudo ser creada.");
 				}
 			}
 		});	

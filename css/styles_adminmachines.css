@@ -307,3 +307,15 @@ p {
 }
 
 
+.selectMachine{
+	color: #edf4f9;
+  text-decoration: none;
+  background-color: #4f94cf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  font-size: 1.3em;
+  font-weight: bold;
+  padding: 10px 26px 10px 26px;
+  line-height: normal;
+  text-align: center;
+}
+
