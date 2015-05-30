@@ -39,7 +39,7 @@ $(document).ready(function(){
 			type: "POST",
 			url: "http://192.168.130.73:8080/add-node",
 			data: {
-				nombreNodoadd: nombreNodoadd,
+				nombreNodo: nombreNodoadd,
 				ipPrivada: ipPrivada,
 				ipPublica: ipPublica,
 				mascaraRed: mascaraRed,
