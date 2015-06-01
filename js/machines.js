@@ -36,7 +36,7 @@ function loadMachines(){
 	  	selectMachines(maquina);
 	  	tdApp.appendChild(document.body.appendChild(sel));
 
-	  	
+	  	//agreagar boton para agregar app
 	  	var tdAddApp= tr.insertCell();			//insertar columna correr.
 	  	tdAddApp.className="text-center";
 	  	var btnA = document.createElement("BUTTON");
@@ -45,8 +45,14 @@ function loadMachines(){
     	btnA.appendChild(a);
 	  	tdAddApp.appendChild(document.body.appendChild(btnA)); //se inserta el botón Correr Maquina.
 
-
-	  		
+	  	//Agregar botón destruir máquina
+	  	var tdDestroyMaquina=tr.insertCell();
+	  	tdDestroyMaquina.className="text-center";
+	  	var btnDestroy=document.createElement("BUTTON");
+	  	var d=document.createTextNode("Destruir Máquina");
+	  	btnDestroy.setAttribute("class","runBtnD");		//cambiar atributos de los botones que se agregaran a runBtnD
+	  	btnDestroy.appendChild(d);
+	  	tdDestroyMaquina.appendChild(document.body.appendChild(btnDestroy));	//se inserta el botn a la tabla
 
 	  }
 
@@ -68,6 +74,13 @@ $(document).ready(function(){
    		miApp = $("#" +miMaquina + " option:selected").text().trim();
 		agregarApp(miMaquina,miApp);
 	})
+
+	$('body').delegate('.runBtnD','click',function () {
+		var i = this.parentNode.parentNode.rowIndex;
+   		miMaquina=document.getElementById("machinesTable").rows[i].cells[0].innerHTML; //nombre de la maquina que se correra
+		destruirMaquina(miMaquina);
+	})
+
 
 
 
@@ -104,7 +117,7 @@ function runMachine(maquina){					//correr maquina.
 
 }
 
-	
+//funcion que lista las maquinas en un componente select	
 function selectMachines(idElemento){
    
 	var root = 'http://192.168.130.73:8080';
@@ -127,7 +140,7 @@ function selectMachines(idElemento){
 	});
 
 }
-
+//funcion que permite agregar apps a una máquina.
 function agregarApp(maquina,aplicacion){
 	var root = 'http://192.168.130.73:8080';
 	var customUrl = root + '/associate-app';
@@ -155,6 +168,34 @@ function agregarApp(maquina,aplicacion){
 	}
 });
 }	
+
+//funcion para destruir maquina
+function destruirMaquina(destrMaquina){
+	var root='http://192.168.130.73:8080';
+	var customUrl = root + '/destroy-vm';
+
+	$.ajax({
+		type: 'POST',
+		url:customUrl,
+		data:{
+			userLogged: $.session.get('username'),
+			nombreMaquina:destrMaquina;
+		},
+
+	success: function(data)
+	{
+		if( data === true)
+		{
+			alert("La aplicacion ha sido asociada a la máquina");
+
+		}
+		else
+		{
+			alert("No se pudo procesar la solicitud");
+		}
+	}	
+});
+}
 
 
 
