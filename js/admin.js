@@ -1,5 +1,5 @@
 function loadUsuarios(){
-		var root = 'http://192.168.130.15:8080';
+		var root = 'http://192.168.130.76:8080';
 
 	$.ajax({
 	  url: root + '/list-users?usernameLogged=' + $.session.get('username'),
@@ -56,7 +56,7 @@ $(document).ready(function(){
 })
 
 function eliminarUsuario(usuarioE){					//eliminar usuario.
-	var root = 'http://192.168.130.15:8080';
+	var root = 'http://192.168.130.76:8080';
 	var customUrl = root + '/delete-user';
 
 	$.ajax({

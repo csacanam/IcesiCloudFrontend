@@ -1,6 +1,6 @@
 function selectMachines(){
    
-	var root = 'http://192.168.130.73:8080';
+	var root = 'http://192.168.130.76:8080';
 
 	$.ajax({
 	  url: root + '/list-machines?username=' + $.session.get('username'),
@@ -26,7 +26,7 @@ $(document).ready(function(){
 });
 
 function reanudar(){	
-	var root = 'http://192.168.130.73:8080';
+	var root = 'http://192.168.130.76:8080';
 
 	$.ajax({
 	  url: root + '/resume-vm?userLogged =' + $.session.get('username') + '&nombreMaquina='+ encodeURIComponent($( "#selectMachine option:selected" ).text().trim()),

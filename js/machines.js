@@ -1,6 +1,6 @@
 function loadMachines(){
    
-	var root = 'http://192.168.130.73:8080';
+	var root = 'http://192.168.130.76:8080';
 
 	$.ajax({
 	  url: root + '/list-machines?username=' + $.session.get('username'),
@@ -89,7 +89,7 @@ $(document).ready(function(){
 
 //Se ejecuta una máquina.
 function runMachine(maquina){					//correr maquina.
-	var root = 'http://192.168.130.15:8080';
+	var root = 'http://192.168.130.76:8080';
 	var customUrl = root + '/run-vm';
 
 	$.ajax({
@@ -120,7 +120,7 @@ function runMachine(maquina){					//correr maquina.
 //funcion que lista las maquinas en un componente select	
 function selectMachines(idElemento){
    
-	var root = 'http://192.168.130.73:8080';
+	var root = 'http://192.168.130.76:8080';
 	var app=""
 
 	$.ajax({
@@ -142,7 +142,7 @@ function selectMachines(idElemento){
 }
 //funcion que permite agregar apps a una máquina.
 function agregarApp(maquina,aplicacion){
-	var root = 'http://192.168.130.73:8080';
+	var root = 'http://192.168.130.76:8080';
 	var customUrl = root + '/associate-app';
 
 	$.ajax({
@@ -171,7 +171,7 @@ function agregarApp(maquina,aplicacion){
 
 //funcion para destruir maquina
 function destruirMaquina(destrMaquina){
-	var root='http://192.168.130.73:8080';
+	var root='http://192.168.130.76:8080';
 	var customUrl = root + '/destroy-vm';
 
 	$.ajax({
@@ -179,7 +179,7 @@ function destruirMaquina(destrMaquina){
 		url:customUrl,
 		data:{
 			userLogged: $.session.get('username'),
-			nombreMaquina:destrMaquina;
+			nombreMaquina:destrMaquina 
 		},
 
 	success: function(data)
